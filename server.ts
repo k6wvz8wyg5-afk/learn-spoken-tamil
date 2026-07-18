@@ -24,7 +24,11 @@ async function connectDB(): Promise<Db | null> {
     return null;
   }
   try {
-    const client = new MongoClient(uri);
+    const client = new MongoClient(uri, {
+      tls: true,
+      tlsAllowInvalidCertificates: true,
+      serverSelectionTimeoutMS: 10000,
+    });
     await client.connect();
     db = client.db("learn-spoken-tamil");
     console.log("Connected to MongoDB");
