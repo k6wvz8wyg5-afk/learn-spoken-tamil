@@ -1,0 +1,352 @@
+{
+ "1.1": [],
+ "1.2": [
+  {
+   "authority": "10 CFR 51.70",
+   "topic": "the requirement that NRC staff independently evaluate and be responsible for the reliability of all information used"
+  },
+  {
+   "authority": "10 CFR 51.71",
+   "topic": "the requirement that the environmental impact statement (EIS) list all Federal permits, licenses, approvals, and other entitlements that must be obtained in implementing the proposed action and discuss the status of compliance with those requirements"
+  }
+ ],
+ "2.1": [
+  {
+   "authority": "10 CFR 51.45",
+   "topic": "requirements of a description of the affected environment"
+  }
+ ],
+ "2.2.1": [],
+ "2.2.2": [],
+ "2.2.3": [],
+ "3.1": [
+  {
+   "authority": "10 CFR 51.45",
+   "topic": "requirements of a description of the affected environment"
+  }
+ ],
+ "3.2": [
+  {
+   "authority": "10 CFR 52.17",
+   "topic": "the number of units, type, and thermal-power level associated with the proposed facility"
+  },
+  {
+   "authority": "10 CFR 51.52",
+   "topic": "the environmental effects that arise from the transportation of fuel and waste from the facility. Note: Evaluation of transportation issues per Table S-4 should make use of the design power levels and projected actual burn up rate rather than those identified in Table S-4."
+  }
+ ],
+ "9.1": [],
+ "9.2.3": [
+  {
+   "authority": "40 CFR 1502.14",
+   "topic": "\u201calternatives including the proposed action\u201d 10 CFR 51.71(a) referring to 10 CFR 51.45(a)(3) with respect to contents of the ER and the need to discuss alternatives 10 CFR 51, Appendix A, discussing alternatives to the proposed action 10 CFR 51.75 referring to 10 CFR 51.71 for construction permit contents that provide alternatives, including the proposed action, need to be part of the construction permit"
+  }
+ ],
+ "9.3": [
+  {
+   "authority": "10 CFR 51.45",
+   "topic": "the contents of the ER and the need to discuss alternatives 10 CFR 51, Appendix A, with respect to alternatives including the proposed action"
+  },
+  {
+   "authority": "10 CFR 52.17",
+   "topic": "the evaluation of alternative sites in review of early site permits"
+  },
+  {
+   "authority": "Coastal Zone Management Act of 1972",
+   "topic": "siting in coastal zones"
+  },
+  {
+   "authority": "Endangered Species Act of 1973",
+   "topic": "critical habitats and species of concern Marine Protection, Research, and"
+  },
+  {
+   "authority": "Sanctuaries Act of 1972",
+   "topic": "marine and other restricted habitats"
+  },
+  {
+   "authority": "National Historic Preservation Act",
+   "topic": "avoiding historic properties in site selection"
+  },
+  {
+   "authority": "Executive Order 12898",
+   "topic": "location of minority and low-income populations. The Federal sources included in Table 4.1.1-1"
+  }
+ ],
+ "2.3.1": [
+  {
+   "authority": "33 CFR 322",
+   "topic": "definition of activities requiring permits 33 CFR 330, Appendix A, with respect to conditions, limitations, and restrictions on construction activities 40 CFR 6, Appendix A, with respect to procedures on floodplain and wetlands protection"
+  },
+  {
+   "authority": "40 CFR 122",
+   "topic": "the National Pollutant Discharge Elimination System (NPDES) permit conditions for discharges, including stormwater discharges"
+  },
+  {
+   "authority": "40 CFR 124",
+   "topic": "the NPDES process"
+  },
+  {
+   "authority": "40 CFR 227",
+   "topic": "criteria for evaluating environmental impacts"
+  },
+  {
+   "authority": "40 CFR 149",
+   "topic": "possible supplemental restrictions on waste disposal and water use in or above a sole source aquifer State and Native American tribal water laws and water rights"
+  }
+ ],
+ "2.3.2": [
+  {
+   "authority": "33 CFR 322",
+   "topic": "definition of activities requiring permits 33 CFR 330, Appendix A, with respect to conditions, limitations, and restrictions on construction activities 40 CFR 6, Appendix A, with respect to procedures on floodplain and wetlands protection"
+  },
+  {
+   "authority": "40 CFR 122",
+   "topic": "National Pollutant Discharge Elimination System (NPDES) permit conditions for discharges including storm water discharges"
+  },
+  {
+   "authority": "40 CFR 149",
+   "topic": "possible supplemental restrictions on waste disposal and water use in or above a sole-source aquifer Federal, State, regional, local, and Native American tribal water laws and water rights"
+  }
+ ],
+ "2.3.3": [
+  {
+   "authority": "33 CFR 322",
+   "topic": "definition of activities requiring permits 33 CFR 330, Appendix A, with respect to conditions, limitations, and restrictions on construction activities 40 CFR 6, Appendix A, with respect to procedures on floodplain and wetlands protection"
+  },
+  {
+   "authority": "40 CFR 122-133",
+   "topic": "the National Pollutant Discharge Elimination System (NPDES) permit conditions for discharges including storm-water discharges"
+  },
+  {
+   "authority": "40 CFR 147",
+   "topic": "restrictions on waste disposal options"
+  },
+  {
+   "authority": "40 CFR 149",
+   "topic": "possible supplemental restrictions on waste disposal and water use in or above a sole source aquifer"
+  },
+  {
+   "authority": "40 CFR 165",
+   "topic": "the disposal and storage of pesticides and pesticide containers"
+  },
+  {
+   "authority": "40 CFR 227",
+   "topic": "criteria for evaluating environmental impacts"
+  },
+  {
+   "authority": "40 CFR 403",
+   "topic": "waste effluents"
+  },
+  {
+   "authority": "40 CFR 423",
+   "topic": "effluent limitations on existing and new point sources"
+  },
+  {
+   "authority": "40 CFR 700-716",
+   "topic": "practices and procedures for managing toxic chemicals State and Native American tribal water laws and water rights"
+  }
+ ],
+ "2.4.1": [
+  {
+   "authority": "10 CFR 51.75",
+   "topic": "descriptions of the environment affected by the issuance of a construction permit 10 CFR 52, Subpart A, with respect to descriptions of the environment affected by the issuance of an early site permit"
+  },
+  {
+   "authority": "10 CFR 51.95",
+   "topic": "the preparation of supplemental environmental impact statements (EISs) in support of the issuance of an operating license"
+  },
+  {
+   "authority": "Golden Eagle Protection Act",
+   "topic": "the prohibition of taking, possessing, selling, transporting, importing, or exporting the bald or golden eagle, dead or alive, without a permit"
+  },
+  {
+   "authority": "Endangered Species Act of 1973",
+   "topic": "identifying threatened and endangered species, critical habitats, formal or informal consultation with the U.S. Fish and Wildlife Service and/or National Marine Fisheries Service Fish and"
+  },
+  {
+   "authority": "Wildlife Coordination Act of 1958",
+   "topic": "consideration of fish and wildlife resources in the planning of development projects that affect water resources"
+  },
+  {
+   "authority": "Migratory Bird Treaty Act",
+   "topic": "declaring that it is unlawful to take, import, export, possess, buy, sell, purchase, or barter any migratory bird. Feathers or other parts of nests and eggs, and products made from migratory birds are also covered by the Act. \u201cTake\u201d is defined as pursuing, hunting, shooting, poisoning, wounding, killing, capturing, trapping, or collecting"
+  }
+ ],
+ "2.4.2": [
+  {
+   "authority": "10 CFR 51.75",
+   "topic": "descriptions of the environment affected by the issuance of a construc- tion permit"
+  },
+  {
+   "authority": "10 CFR 51.95",
+   "topic": "the preparation of supplemental environmental impact statements (EISs) in support of the issuance of an operating license 10 CFR 52, Subpart A, with respect to descriptions of the environment affected by the issuance of an early site permit"
+  },
+  {
+   "authority": "Coastal Zone Management Act of 1972",
+   "topic": "natural resources, and land or water use of the coastal zone"
+  },
+  {
+   "authority": "Endangered Species Act of 1973",
+   "topic": "identifying threatened and endangered species, critical habitats, and initiating formal or informal consultation with the U.S. Fish and Wildlife Service and/or National Marine Fisheries Service Federal Water Pollution Control Act (FWPCA), commonly referred to as the Clean Water Act, Amendments of 1972 with respect to restoration and maintenance of the chemical, physical, and biological integrity of water resources Fish and"
+  },
+  {
+   "authority": "Wildlife Coordination Act of 1958",
+   "topic": "consideration of fish and wildlife resources in the planning of development projects that affect water resources"
+  },
+  {
+   "authority": "Marine Mammal Protection Act of 1972",
+   "topic": "the protection of marine mammals"
+  },
+  {
+   "authority": "Sanctuaries Act of 1972",
+   "topic": "dumping of dredged material into the ocean Rivers and"
+  },
+  {
+   "authority": "Harbors Appropriations Act of 1899",
+   "topic": "the deposition of debris in navigable waters, or tributaries to such waters"
+  }
+ ],
+ "2.5.1": [
+  {
+   "authority": "10 CFR 52.18",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses"
+  }
+ ],
+ "2.5.2": [
+  {
+   "authority": "10 CFR 51.45",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses."
+  }
+ ],
+ "2.5.3": [],
+ "2.5.4": [
+  {
+   "authority": "10 CFR 52.18",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses"
+  },
+  {
+   "authority": "Executive Order 12898 (59 FR 7629)",
+   "topic": "impacts on minority and low-income populations"
+  },
+  {
+   "authority": "10 CFR 100.10",
+   "topic": "requirements that the site acceptance be based on the consideration of factors relating to the proposed reactor design and the characteristics peculiar to the site"
+  }
+ ],
+ "2.7": [
+  {
+   "authority": "10 CFR 52.18",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses 10 CFR 100.10(c) and 10 CFR 100.20(c) with respect to meteorological conditions at the site and in the surrounding area"
+  },
+  {
+   "authority": "40 CFR 50",
+   "topic": "definition of criteria pollutants and National Ambient Air Quality Standards 40 CFR 51, Subpart W, with respect to requirements related to determination that the proposed Federal action conforms to applicable implementation plans 40 CFR 51, Appendix W, with respect to air-quality models 40 CFR 81, Subpart C, with respect to attainment status designations approved by the EPA"
+  }
+ ],
+ "2.8": [
+  {
+   "authority": "10 CFR 51.14",
+   "topic": "the possible need for cooperating agencies in the preparation of the EIS 10 CFR 51.29(a)(7) with respect to the possible need to identify cooperating agencies. Data provided by the applicant will generally be adequate if future actions of other Federal agencies that are connected with, cumulative with, or similar to the NRC action are identified and described in suffi- cient detail to enable an assessment to be made"
+  }
+ ],
+ "4.6": [],
+ "5.3": [],
+ "7.1": [
+  {
+   "authority": "10 CFR 50.34",
+   "topic": "the applications for construction permits and operating licenses. This includes an analysis and evaluation of the design and performance of structures, systems, and components of the facility with the objective of assessing the risk to public health and safety resulting from operation of the facility"
+  },
+  {
+   "authority": "10 CFR 52.17",
+   "topic": "applications for early site permits 10 CFR 52.79 for combined licenses with regard to requirements in 10 CFR 50.34 for the analysis and evaluation of the design and performance of structures, systems, and components of the facility with the objective of assessing the risk to public health and safety resulting from operation of the facility"
+  }
+ ],
+ "7.2": [
+  {
+   "authority": "10 CFR 52.17",
+   "topic": "applications for early site permits 10 CFR 52.79 for combined licenses with regard to requirements in 10 CFR 50.34 for the analysis and evaluation of the design and performance of structures, systems, and components of the facility with the objective of assessing the risk to public health and safety resulting from operation of the facility"
+  }
+ ],
+ "7.3": [
+  {
+   "authority": "10 CFR 52.17",
+   "topic": "requirements in 10 CFR 50.34(f) for the applicant to perform a plant/site-specific probabilistic risk assessment, the aim of which is to seek such improvements in the reliability of core and containment heat removal systems that are significant and practical and do not impact excessively on the plant"
+  },
+  {
+   "authority": "10 CFR 52.79",
+   "topic": "requirements to contain the technically relevant information required of applicants for an operating license in 10 CFR 50.34"
+  }
+ ],
+ "6.1": [
+  {
+   "authority": "33 CFR 322",
+   "topic": "defining activities requiring permits 33 CFR 330, Appendix A, with respect to conditions, limitations, and restrictions on construction activities 40 CFR 6, Appendix A, with respect to procedures on floodplain and wetlands protection"
+  },
+  {
+   "authority": "40 CFR 122",
+   "topic": "NPDES permit conditions for discharges, including storm water discharges"
+  },
+  {
+   "authority": "40 CFR 149",
+   "topic": "possible supplemental restrictions on waste disposal and water use in or above a sole source aquifer"
+  },
+  {
+   "authority": "40 CFR 423",
+   "topic": "effluent limitations on existing and new point sources Federal, State, local, regional, and Native American tribal water laws and water rights"
+  }
+ ],
+ "10.1": [],
+ "10.2": [],
+ "10.3": [],
+ "9.2": [],
+ "9.4": [
+  {
+   "authority": "40 CFR 122",
+   "topic": "NPDES permit conditions specified in the CWA Endangered Species Act of 1973 (amended 1988)"
+  }
+ ],
+ "2.6": [
+  {
+   "authority": "10 CFR 52.18",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses 10 CFR 100.10(c) and 10 CFR 100.20(c) with respect to meteorological conditions at the site and in the surrounding area"
+  },
+  {
+   "authority": "40 CFR 50",
+   "topic": "definition of criteria pollutants and National Ambient Air Quality Standards 40 CFR 51, Subpart W, with respect to requirements related to determination that the proposed Federal action conforms to applicable implementation plans 40 CFR 51, Appendix W, with respect to air-quality models 40 CFR 81, Subpart C, with respect to attainment status designations approved by the EPA"
+  }
+ ],
+ "10.4": [
+  {
+   "authority": "10 CFR 52.18",
+   "topic": "reviewing applications for early site permits"
+  },
+  {
+   "authority": "10 CFR 52.81",
+   "topic": "reviewing applications for combined licenses"
+  },
+  {
+   "authority": "10 CFR 54.23",
+   "topic": "applications for license renewal."
+  }
+ ]
+}

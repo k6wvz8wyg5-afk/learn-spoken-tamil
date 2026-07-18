@@ -1,0 +1,589 @@
+{
+ "_note": "Derived (not verbatim) acceptance items tagged Decision basis (read by the regulator to decide; stated in the ER) vs. Backup (owner-controlled records cited from the ER but not reproduced in it).7) for the ESP ER, built from NUREG-1555 (2000) 'II. Acceptance Criteria' governing-requirement lists, read with RG 4.2 and the NR GEIS tiering. Each test is answerable yes/no by pointing at a stated value, a cited document/permit/consultation, or a value-vs-limit comparison. The authorities list restates the source's cited requirements. Confirm against the source before filing. Numeric thresholds that could not be verified against a readable source this session were removed and replaced with references to the governing regulation (10 CFR 100.3/100.21/100.23, RG 1.208, CEQ EJ guidance); the applicant states the actual value from the current rule.",
+ "1.1": {
+  "tests": [
+   "Does the ER state the applicant, reactor type, and site location (State, county, and site-center coordinates)? (Y/N)",
+   "Does the ER cite where the environmental documents are publicly available? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.4 (Implementation of the Rule; the GEIS is the ER-streamlining basis, not an issue conclusion)",
+   "10 CFR 51, Subpart A (procedural matters; availability of environmental documents)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "1.2": {
+  "tests": [
+   "Does the ER contain a table listing every Federal permit, license, approval, and entitlement required? (Y/N)",
+   "Does each row state the compliance/consultation status (not started / initiated on [date] / in progress / complete)? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS Appendix F (Laws, Regulations, and Other Authorizations; the GEIS authorizations list, not an issue conclusion)",
+   "10 CFR 51.45(d) (list all Federal authorizations; state compliance status)",
+   "10 CFR 51.70 (staff independent evaluation of information)",
+   "10 CFR 51.71 (EIS lists all Federal authorizations)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.1": {
+  "tests": [
+   "Does the ER state the exclusion-area boundary distance and the site acreage? (Y/N)",
+   "Does the ER include a site map showing the property boundary? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.45 (description of the affected environment)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)",
+   "NR GEIS Table 1-1 Visual (GEIS 3.2.2.1.1–3.2.2.2.1; 3 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.2.1": {
+  "tests": [
+   "Does the ER state the current land-use category and acreage of the site and vicinity? (Y/N)",
+   "Does the ER list each applicable land-use plan, including any formally proposed or staged plan being actively pursued? (Y/N)",
+   "Does the ER state, for each plan, whether the project conflicts with it and the extent of any conflict? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.71(d) (EIS analysis requirements)",
+   "10 CFR 51, Appendix A(7) (conflicts with land-use plan objectives)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.2.2": {
+  "tests": [
+   "Does the ER state the length and acreage of each transmission-line corridor and offsite area to be disturbed? (Y/N)",
+   "Does the ER list each applicable land-use plan for the corridors and offsite areas, including any formally proposed or staged plan being actively pursued? (Y/N)",
+   "Does the ER state, for each corridor, whether it conflicts with any plan and the extent of any conflict? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.71(d) (EIS analysis requirements)",
+   "10 CFR 51, Appendix A(7) (conflicts with land-use plan objectives)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)",
+   "NR GEIS Table 1-1 Visual (GEIS 3.2.2.1.1–3.2.2.2.1; 3 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.2.3": {
+  "tests": [
+   "Does the ER state the regional land-use distribution (acreage or percent by category)? (Y/N)",
+   "Does the ER list each applicable regional land-use plan, including any formally proposed or staged plan being actively pursued? (Y/N)",
+   "Does the ER state whether the project conflicts with any regional plan and the extent of any conflict? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.71(d) (EIS analysis requirements)",
+   "10 CFR 51, Appendix A(7) (conflicts with land-use plan objectives)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.3.1": {
+  "tests": [
+   "Does the ER state the design-basis flood elevation and its margin above grade? (Y/N)",
+   "Does the ER state the groundwater depth and whether the site overlies a designated sole-source aquifer (Y/N)? (Y/N)",
+   "Does the ER cite the USACE Section 404 and NPDES permits applicable to the project? (Y/N)"
+  ],
+  "authorities": [
+   "33 CFR 322 (activities requiring permits)",
+   "33 CFR 330, Appendix A (construction-activity conditions)",
+   "40 CFR 6, Appendix A (floodplain and wetlands protection)",
+   "40 CFR 122 / 124 (NPDES permit conditions and process)",
+   "40 CFR 227 (evaluating environmental impacts)",
+   "40 CFR 149 (sole-source aquifer restrictions)",
+   "State and Tribal water laws and water rights",
+   "NR GEIS Table 1-1 Water Resource (GEIS 3.4.2.1.1–3.4.2.2.9; 20 Cat 1, 1 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.3.2": {
+  "tests": [
+   "Does the ER state the peak consumptive water-use rate and the available supply (flow or volume)? (Y/N)",
+   "Is the consumptive-use rate less than or equal to the permitted or available supply? (Y/N)",
+   "Does the ER cite the applicable water-use right or permit? (Y/N)"
+  ],
+  "authorities": [
+   "33 CFR 322 (activities requiring permits)",
+   "33 CFR 330, Appendix A (construction-activity conditions)",
+   "40 CFR 6, Appendix A (floodplain and wetlands protection)",
+   "40 CFR 122 (NPDES permit conditions)",
+   "40 CFR 149 (sole-source aquifer restrictions)",
+   "Federal, State, regional, local, and Tribal water laws and water rights",
+   "NR GEIS Table 1-1 Water Resource (GEIS 3.4.2.1.1–3.4.2.2.9; 20 Cat 1, 1 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Backup (owner-controlled)"
+  ]
+ },
+ "2.3.3": {
+  "tests": [
+   "Does the ER state the baseline water-quality classification of each affected water body? (Y/N)",
+   "Does the ER cite the NPDES permit number and effluent limits for each discharge? (Y/N)",
+   "Is each proposed discharge concentration within its NPDES effluent limit? (Y/N)"
+  ],
+  "authorities": [
+   "33 CFR 322; 33 CFR 330, Appendix A",
+   "40 CFR 6, Appendix A (floodplain and wetlands protection)",
+   "40 CFR 122-133 (NPDES permit conditions)",
+   "40 CFR 147 / 149 (waste-disposal and sole-source-aquifer restrictions)",
+   "40 CFR 165 (pesticide disposal and storage)",
+   "40 CFR 227; 40 CFR 403 (waste effluents)",
+   "40 CFR 423 (effluent limitations on point sources)",
+   "40 CFR 700-716 (managing toxic chemicals)",
+   "State and Tribal water laws and water rights",
+   "NR GEIS Table 1-1 Water Resource (GEIS 3.4.2.1.1–3.4.2.2.9; 20 Cat 1, 1 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.4.1": {
+  "tests": [
+   "Does the ER state the acreage of each terrestrial habitat type on the site and transmission corridors? (Y/N)",
+   "Does the ER list each Federally listed terrestrial species and designated critical habitat present? (Y/N)",
+   "Does the ER state the ESA Section 7 and Bald and Golden Eagle Protection Act consultation status? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.75 (affected environment, CP stage)",
+   "10 CFR 52, Subpart A (affected environment, ESP stage)",
+   "10 CFR 51.95 (supplemental EIS, OL stage)",
+   "Bald and Golden Eagle Protection Act (eagle take prohibition)",
+   "Endangered Species Act of 1973 (listed species and critical habitat; consultation)",
+   "Fish and Wildlife Coordination Act of 1958 (fish and wildlife in water-resource projects)",
+   "Migratory Bird Treaty Act (protection of migratory birds)",
+   "NR GEIS Table 1-1 Terrestrial Ecology (GEIS 3.5.2.1.1–3.5.2.2.9; 17 Cat 1, 2 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.4.2": {
+  "tests": [
+   "Does the ER list the aquatic species present in each affected water body? (Y/N)",
+   "Does the ER list each ESA-listed aquatic species, designated critical habitat, and essential fish habitat present? (Y/N)",
+   "Does the ER state the ESA Section 7 and Magnuson-Stevens EFH consultation status? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.75 (affected environment, CP stage)",
+   "10 CFR 51.95 (supplemental EIS, OL stage)",
+   "10 CFR 52, Subpart A (affected environment, ESP stage)",
+   "Coastal Zone Management Act of 1972",
+   "Endangered Species Act of 1973 (USFWS/NMFS consultation)",
+   "Federal Water Pollution Control Act (Clean Water Act)",
+   "Fish and Wildlife Coordination Act of 1958",
+   "Marine Mammal Protection Act of 1972",
+   "Marine Protection, Research, and Sanctuaries Act of 1972 (ocean disposal and marine sanctuaries)",
+   "Rivers and Harbors Appropriations Act of 1899 (Section 10; work in navigable waters)",
+   "NR GEIS Table 1-1 Aquatic Ecology (GEIS 3.6.2.1.1–3.6.2.2.9; 12 Cat 1, 4 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.5.1": {
+  "tests": [
+   "Does the ER state the exclusion-area boundary distance, the low-population-zone outer radius, and the population-center distance as defined in 10 CFR 100.3? (Y/N)",
+   "Does the ER state the current and permit-term-projected population within 0-16 km (0-10 mi) and 0-80 km (0-50 mi)? (Y/N)",
+   "Does the ER confirm the population-center distance meets the minimum in 10 CFR 100.21(b)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 50.34(a)(1) (site acceptance; population density and use of site environs)",
+   "10 CFR 51.45(c) (analysis of socioeconomic data)",
+   "10 CFR 51.45(d) and 51.71(d) (ER/EIS analyses)",
+   "NR GEIS Table 1-1 Socioeconomics (GEIS 3.12.2.1.1–3.12.2.2.4; 8 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.5.2": {
+  "tests": [
+   "Does the ER state the affected-area population, employment, and housing counts? (Y/N)",
+   "Does the ER state the capacity of the public services and infrastructure the project would use (water, schools, roads, emergency services)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.45(c) (analysis of socioeconomic data)",
+   "10 CFR 51.45(d) and 51.71(d) (ER/EIS analyses)",
+   "10 CFR 51.45 (ESP applications)",
+   "10 CFR 52.81 (COL applications)",
+   "NR GEIS Table 1-1 Socioeconomics (GEIS 3.12.2.1.1–3.12.2.2.4; 8 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.5.3": {
+  "tests": [
+   "Does the ER list each historic property in the area of potential effect and its National Register eligibility status? (Y/N)",
+   "Does the ER state the NHPA Section 106 consultation status with the SHPO/THPO? (Y/N)"
+  ],
+  "authorities": [
+   "36 CFR 800 (NHPA Section 106/110 process)",
+   "36 CFR 63 (National Register eligibility determinations)",
+   "NR GEIS Table 1-1 Historic and Cultural Resources (GEIS 3.7.2; 2 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.6": {
+  "tests": [
+   "Does the ER state the physiographic province, site stratigraphy, and bedrock depth? (Y/N)",
+   "Does the ER state whether any capable tectonic source exists within the site investigation distance defined in 10 CFR 100.23 (Y/N)? (Y/N)",
+   "Does the ER state the design-basis ground motion (peak ground acceleration and response spectra) per 10 CFR 100.23 and the applicable seismic regulatory guide? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.70(b) (reliability of information)",
+   "10 CFR 51.71(d) (environmental quality standards)",
+   "10 CFR 52.18 / 52.81 (ESP / COL applications)",
+   "10 CFR 100.10(c) / 100.20(c) (site geologic/seismic conditions)",
+   "NR GEIS Table 1-1 Air Quality (GEIS 3.3.2.1.1–3.3.2.2.4; 6 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.7": {
+  "tests": [
+   "Does the ER state the atmospheric dispersion factors (chi/Q) at the exclusion-area boundary and the LPZ? (Y/N)",
+   "Does the ER state the design-basis wind, tornado, and precipitation values per the applicable regulatory guides? (Y/N)",
+   "Does the ER state whether the site is in an air-quality attainment area (Y/N)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 50, Appendix I (air doses from gaseous emissions)",
+   "10 CFR 51.70(b) (reliability of meteorological information)",
+   "10 CFR 51.71(d) (environmental quality standards)",
+   "10 CFR 52.18 / 52.81 (ESP / COL applications)",
+   "10 CFR 100.10(c) / 100.20(c) (site meteorological conditions)",
+   "40 CFR 50 (criteria pollutants)",
+   "NR GEIS Table 1-1 Air Quality (GEIS 3.3.2.1.1–3.3.2.2.4; 6 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "2.8": {
+  "tests": [
+   "Does the ER list each connected, cumulative, or similar Federal action in the area? (Y/N)",
+   "Does the ER state whether any cooperating agency is needed (Y/N) and name it if so? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.2 (Cumulative Impacts; connected/cumulative/similar actions are project-specific Category 2)",
+   "40 CFR 1508.25 and 10 CFR 51.14(b) (scope of EIS; connected/cumulative/similar actions)",
+   "40 CFR 1501.6, 10 CFR 51.10(b)(2), 10 CFR 51.14 (cooperating agencies)",
+   "10 CFR 51.29(a)(7) (identifying cooperating agencies)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "3.1": {
+  "tests": [
+   "Does the ER state the number of units, the footprint dimensions, and the maximum structure height? (Y/N)",
+   "Does the ER include a plant-layout drawing? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.45 (description of the affected environment)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)",
+   "NR GEIS Table 1-1 Visual (GEIS 3.2.2.1.1–3.2.2.2.1; 3 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "3.2": {
+  "tests": [
+   "Does the ER state the number of units, reactor type, and rated thermal power (MWt)? (Y/N)",
+   "Does the ER state whether the reactor and its fuel/waste transportation meet all Table S-4 conditions (Y/N)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 52.17 (number of units, type, thermal-power level)",
+   "10 CFR 51.52 (transportation of fuel and waste; Table S-4)",
+   "NR GEIS Table 1-1 Air Quality (GEIS 3.3.2.1.1–3.3.2.2.4; 6 Cat 1)",
+   "NR GEIS Table 1-1 Fuel Cycle (GEIS 3.14.2.1–3.14.2.6; 6 Cat 1)",
+   "NR GEIS Table 1-1 Transportation of Fuel and Waste (GEIS 3.15.2.1–3.15.2.3; 3 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "4.6": {
+  "tests": [
+   "Does the ER state the calculated radiation dose to construction workers from any adjacent operating units? (Y/N)",
+   "Is that dose within the applicable occupational limit? (Y/N)",
+   "Does the ER identify the nonaquatic-environment monitoring and recordkeeping procedures? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 50.36(b) (monitoring and recordkeeping for the nonaquatic environment)",
+   "NR GEIS Table 1-1 Radiological Environment (GEIS 3.8.1.2.1–3.8.1.2.2; 5 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Backup (owner-controlled)"
+  ]
+ },
+ "5.3": {
+  "tests": [
+   "Does the ER state the intake flow, the discharge temperature, and the thermal-discharge delta-T? (Y/N)",
+   "Is the thermal discharge within the applicable Clean Water Act NPDES thermal limit? (Y/N)",
+   "Does the ER assign the cooling-system impact a significance level (SMALL/MODERATE/LARGE per C.5.3)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 51.70(b) (concise, clear, analytic EIS preparation)",
+   "NR GEIS Table 1-1 Aquatic Ecology (GEIS 3.6.2.1.1–3.6.2.2.9; 12 Cat 1, 4 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "6.1": {
+  "tests": [
+   "Does the ER state, for each monitoring program, the parameters, station locations, and sampling frequency? (Y/N)",
+   "Does the ER cite any permit governing the monitored discharges? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS: no issue section (environmental monitoring is a program supporting the resource issues, not an NR GEIS Table 1-1 issue; governed by the CFR/permit authorities below)",
+   "33 CFR 322; 33 CFR 330, Appendix A",
+   "40 CFR 6, Appendix A (floodplain and wetlands protection)",
+   "40 CFR 122 (NPDES permit conditions)",
+   "40 CFR 149 (sole-source aquifer restrictions)",
+   "40 CFR 423 (effluent limitations on point sources)",
+   "Federal, State, local, regional, and Tribal water laws and water rights"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Backup (owner-controlled)"
+  ]
+ },
+ "7.1": {
+  "tests": [
+   "Does the ER state the geographic and temporal boundaries used for cumulative land-use effects? (Y/N)",
+   "Does the ER assign the cumulative land-use impact a significance level (SMALL/MODERATE/LARGE)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 50.34 (design/performance analysis; risk to public health and safety)",
+   "10 CFR 52.17 (ESP applications)",
+   "10 CFR 52.79 (COL applications; 10 CFR 50.34 requirements)",
+   "NR GEIS Table 1-1 Land Use (GEIS 3.1.2.1.1–3.1.2.2.2; 6 Cat 1)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "7.2": {
+  "tests": [
+   "Does the ER state the boundaries used for cumulative water-resource effects? (Y/N)",
+   "Does the ER assign the cumulative water-resource impact a significance level (SMALL/MODERATE/LARGE)? (Y/N)"
+  ],
+  "authorities": [
+   "10 CFR 52.17 (ESP applications)",
+   "10 CFR 52.79 (COL applications; 10 CFR 50.34 requirements)",
+   "NR GEIS Table 1-1 Water Resource (GEIS 3.4.2.1.1–3.4.2.2.9; 20 Cat 1, 1 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "7.3": {
+  "tests": [
+   "Does the ER state the boundaries used for cumulative ecological effects? (Y/N)",
+   "Does the ER assign the cumulative ecological impact a significance level (SMALL/MODERATE/LARGE)? (Y/N)",
+   "Does the ER state whether a SAMA/SAMDA evaluation was performed (Y/N)? (Y/N)"
+  ],
+  "authorities": [
+   "Limerick Ecology Action v. NRC, 869 F.2d 719 (3d Cir. 1989) (consideration of SAMAs under NEPA)",
+   "10 CFR 50.34(f)(1)(i) (plant/site-specific PRA)",
+   "10 CFR 52.17 (ESP applications)",
+   "NR GEIS Table 1-1 Aquatic Ecology (GEIS 3.6.2.1.1–3.6.2.2.9; 12 Cat 1, 4 Cat 2)",
+   "NR GEIS Table 1-1 Terrestrial Ecology (GEIS 3.5.2.1.1–3.5.2.2.9; 17 Cat 1, 2 Cat 2)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "9.1": {
+  "tests": [
+   "Does the ER state the environmental consequences of not issuing the ESP (the no-action alternative)? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.3 (Non-Resource Related Category 2 Issues; the GEIS classifies alternatives as project-specific Category 2 and provides no generic analysis)",
+   "10 CFR 51, Appendix A to Subpart A (analysis of alternatives to the proposed action)"
+  ],
+  "placements": [
+   "Decision basis (in ER)"
+  ]
+ },
+ "9.2": {
+  "tests": [
+   "Does the ER list each energy alternative carried forward and its pass/fail result against the three C.3.3 screening criteria? (Y/N)",
+   "Does the ER assign each energy alternative's impact a significance level by resource area? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.3 (Non-Resource Related Category 2 Issues; the GEIS classifies alternatives as project-specific Category 2 and provides no generic analysis)",
+   "10 CFR 51, Appendix A to Subpart A (analysis of alternatives to the proposed action)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "9.2.3": {
+  "tests": [
+   "Does the ER compare the alternative energy sources on impact by resource area? (Y/N)",
+   "If included, does the ER tabulate the economic cost of each alternative energy source? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.3 (Non-Resource Related Category 2 Issues; the GEIS classifies alternatives as project-specific Category 2 and provides no generic analysis)",
+   "40 CFR 1502.14 (alternatives including the proposed action)",
+   "10 CFR 51.71(a) / 51.45(a)(3) (ER contents; discuss alternatives)",
+   "10 CFR 51, Appendix A (alternatives to the proposed action)",
+   "10 CFR 51.75 / 51.71 (CP-stage alternatives)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "9.3": {
+  "tests": [
+   "Does the ER state the alternative-site screening criteria and the pass/fail result for each candidate site? (Y/N)",
+   "Does the ER state, yes or no, whether any alternative site is obviously superior to the proposed site? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.3 (Non-Resource Related Category 2 Issues; the GEIS classifies alternatives as project-specific Category 2 and provides no generic analysis)",
+   "10 CFR 51.45 (ER contents; discuss alternatives)",
+   "10 CFR 51, Appendix A (alternatives including the proposed action)",
+   "10 CFR 52.17 (evaluation of alternative sites at ESP)",
+   "Coastal Zone Management Act of 1972",
+   "Endangered Species Act of 1973",
+   "Marine Protection, Research, and Sanctuaries Act of 1972",
+   "National Historic Preservation Act"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "9.4": {
+  "tests": [
+   "Does the ER state, for each heat-dissipation and intake/discharge alternative, its impact by resource area? (Y/N)",
+   "Does the ER cite the NPDES conditions applicable to each cooling alternative? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 1.3.3.2.3 (Non-Resource Related Category 2 Issues; the GEIS classifies alternatives as project-specific Category 2 and provides no generic analysis)",
+   "10 CFR 51.71(a) / 51.45(a)(3) (discuss alternatives)",
+   "10 CFR 51, Appendix A (alternatives to the proposed action)",
+   "Fish and Wildlife Coordination Act of 1958",
+   "Marine Sanctuaries Act of 1972; Marine Mammal Protection Act",
+   "Coastal Zone Management Act of 1972; Clean Water Act",
+   "40 CFR 122 (NPDES permit conditions)",
+   "Endangered Species Act of 1973"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ },
+ "10.1": {
+  "tests": [
+   "Does the ER list the unavoidable adverse environmental impacts? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 4.1 (Unavoidable Adverse Environmental Impacts and Irreversible and Irretrievable Commitments of Resources; NEPA summary finding, not a Table 1-1 issue)",
+   "10 CFR 51, Appendix A (identification of unavoidable adverse impacts)"
+  ],
+  "placements": [
+   "Decision basis (in ER)"
+  ]
+ },
+ "10.2": {
+  "tests": [
+   "Does the ER list the irreversible and irretrievable commitments of resources? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 4.2 (Relationship between Short-Term Use of the Environment and Long-Term Productivity; NEPA summary finding, not a Table 1-1 issue)",
+   "10 CFR 51.45(b)(5) and 10 CFR 51, Appendix A to Subpart A (irreversible and irretrievable commitments)"
+  ],
+  "placements": [
+   "Decision basis (in ER)"
+  ]
+ },
+ "10.3": {
+  "tests": [
+   "Does the ER state the relationship between short-term uses and long-term productivity of the environment? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 4.1 (Unavoidable Adverse Environmental Impacts and Irreversible and Irretrievable Commitments of Resources; NEPA summary finding, not a Table 1-1 issue)",
+   "10 CFR 51.45(b)(4) and 10 CFR 51, Appendix A (short-term uses vs. long-term productivity)"
+  ],
+  "placements": [
+   "Decision basis (in ER)"
+  ]
+ },
+ "10.4": {
+  "tests": [
+   "If the benefit-cost balance is included, does the ER tabulate internal and external costs against benefits? (Y/N)",
+   "If deferred, does the ER state the election and cite 10 CFR 51.50(b)(2)? (Y/N)"
+  ],
+  "authorities": [
+   "NR GEIS 4.4 (Cost Benefit; NEPA summary finding, not a Table 1-1 issue)",
+   "10 CFR 51.45(d) and 51.71(d) (ER/EIS analyses)",
+   "10 CFR 52.18 (ESP applications)",
+   "10 CFR 52.81 (COL applications)",
+   "10 CFR 54.23 (license-renewal applications)"
+  ],
+  "placements": [
+   "Decision basis (in ER)",
+   "Decision basis (in ER)"
+  ]
+ }
+}

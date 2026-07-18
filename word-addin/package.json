@@ -1,0 +1,14 @@
+{
+  "name": "word-gemini-addin",
+  "version": "1.0.0",
+  "description": "Word Add-in that connects to Google Gemini chat for content generation",
+  "scripts": {
+    "start": "npx serve src --listen 3000 --ssl-cert certs/localhost.crt --ssl-key certs/localhost.key",
+    "dev": "npx serve src --listen 3000",
+    "generate-certs": "npx office-addin-dev-certs install"
+  },
+  "devDependencies": {
+    "office-addin-dev-certs": "^1.13.0",
+    "serve": "^14.2.0"
+  }
+}

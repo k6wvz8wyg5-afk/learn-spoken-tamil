@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(textutil -convert txt -stdout ER_Guidance_Document.docx)",
+      "Bash(python3 generate_er_guidance.py)",
+      "Bash(python3 -c \"import zipfile; z=zipfile.ZipFile\\('ER_Guidance_Document.docx'\\); print\\('ZIP:', 'OK' if z.testzip\\(\\) is None else 'BAD'\\)\")",
+      "Bash(python3 -c \"import zipfile,xml.dom.minidom as m; m.parseString\\(zipfile.ZipFile\\('ER_Guidance_Document.docx'\\).read\\('word/document.xml'\\)\\); print\\('XML: well-formed'\\)\")",
+      "Bash(python3 -c \"import zipfile,xml.dom.minidom as m; z=zipfile.ZipFile\\('ER_Guidance_Document.docx'\\); print\\('ZIP:', 'OK' if z.testzip\\(\\) is None else 'BAD'\\); m.parseString\\(z.read\\('word/document.xml'\\)\\); print\\('XML: well-formed'\\)\")",
+      "Bash(awk 'NR>=651 && NR<=1094' \"Source_https___www.nrc.gov_docs_ML2509_ML25098A236.pdf.md\")",
+      "Skill(deep-research)",
+      "Skill(deep-research:*)",
+      "WebSearch",
+      "WebFetch(domain:www.nrc.gov)",
+      "WebFetch(domain:www.ecfr.gov)",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:duckduckgo.com)",
+      "WebFetch(domain:www.bing.com)",
+      "WebFetch(domain:html.duckduckgo.com)"
+    ]
+  },
+  "sandbox": {
+    "filesystem": {
+      "allowWrite": [
+        "/var/folders/gw/hry5yfb14qqc2c80blqm6k2h0000gn/T",
+        "/var/folders/gw/hry5yfb14qqc2c80blqm6k2h0000gn/C"
+      ]
+    }
+  }
+}

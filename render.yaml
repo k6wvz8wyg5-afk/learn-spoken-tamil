@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: learn-spoken-tamil
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: NODE_ENV=production node dist/server.cjs
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
