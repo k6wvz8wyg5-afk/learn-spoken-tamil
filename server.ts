@@ -3,6 +3,7 @@ import path from "path";
 import dotenv from "dotenv";
 import fs from "fs";
 import { GoogleGenAI } from "@google/genai";
+import { MongoClient, Db } from "mongodb";
 import { createServer as createViteServer } from "vite";
 
 dotenv.config();
@@ -11,6 +12,68 @@ const app = express();
 const PORT = parseInt(process.env.PORT || "3000", 10);
 
 app.use(express.json());
+
+// --- MongoDB connection for persistent profile storage ---
+let db: Db | null = null;
+
+async function connectDB(): Promise<Db | null> {
+  if (db) return db;
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    console.warn("MONGODB_URI not set — profiles will only persist in localStorage (not recommended for production)");
+    return null;
+  }
+  try {
+    const client = new MongoClient(uri);
+    await client.connect();
+    db = client.db("learn-spoken-tamil");
+    console.log("Connected to MongoDB");
+    return db;
+  } catch (e) {
+    console.error("MongoDB connection failed:", e);
+    return null;
+  }
+}
+
+// Load all profiles for a device/browser (keyed by a device ID the client sends)
+app.get("/api/profiles/:deviceId", async (req, res) => {
+  try {
+    const database = await connectDB();
+    if (!database) return res.json({ profiles: null });
+
+    const doc = await database.collection("profiles").findOne({ deviceId: req.params.deviceId });
+    if (!doc) return res.json({ profiles: null });
+
+    res.json({ profiles: doc.profiles, activeIdx: doc.activeIdx ?? 0 });
+  } catch (e) {
+    console.error("Error loading profiles:", e);
+    res.json({ profiles: null });
+  }
+});
+
+// Save all profiles for a device
+app.post("/api/profiles/:deviceId", async (req, res) => {
+  try {
+    const database = await connectDB();
+    if (!database) return res.json({ ok: false, reason: "no_db" });
+
+    const { profiles, activeIdx } = req.body;
+    if (!profiles || !Array.isArray(profiles)) {
+      return res.status(400).json({ ok: false, reason: "invalid_data" });
+    }
+
+    await database.collection("profiles").updateOne(
+      { deviceId: req.params.deviceId },
+      { $set: { deviceId: req.params.deviceId, profiles, activeIdx: activeIdx ?? 0, updatedAt: new Date() } },
+      { upsert: true }
+    );
+
+    res.json({ ok: true });
+  } catch (e) {
+    console.error("Error saving profiles:", e);
+    res.status(500).json({ ok: false, reason: "server_error" });
+  }
+});
 
 // Simple persistent disk/memory cache for TTS audio to avoid hitting Gemini API quota
 const CACHE_FILE = path.join(process.cwd(), "tts_cache.json");

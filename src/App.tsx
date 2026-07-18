@@ -16,6 +16,35 @@ import { motion } from "motion/react";
 
 const AVATARS = ["🦁", "🐨", "🦊", "🐼", "🦉", "🦖", "🦄", "🐵"];
 
+function getDeviceId(): string {
+  let id = localStorage.getItem("tamil_kid_device_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    try { localStorage.setItem("tamil_kid_device_id", id); } catch {}
+  }
+  return id;
+}
+
+async function loadProfilesFromServer(): Promise<{ profiles: UserProfile[] | null; activeIdx: number }> {
+  try {
+    const res = await fetch(`/api/profiles/${getDeviceId()}`);
+    if (!res.ok) return { profiles: null, activeIdx: 0 };
+    const data = await res.json();
+    if (!data.profiles) return { profiles: null, activeIdx: 0 };
+    return { profiles: data.profiles.map(migrateProfile), activeIdx: data.activeIdx ?? 0 };
+  } catch {
+    return { profiles: null, activeIdx: 0 };
+  }
+}
+
+function saveProfilesToServer(profiles: UserProfile[], activeIdx: number) {
+  fetch(`/api/profiles/${getDeviceId()}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profiles, activeIdx }),
+  }).catch(() => {});
+}
+
 const DEFAULT_PROFILE: UserProfile = {
   name: "",
   avatar: "🦁",
@@ -72,6 +101,7 @@ export default function App() {
   const profile = profiles[activeProfileIdx] || null;
 
   useEffect(() => {
+    // Load from localStorage first (instant), then reconcile with server
     const savedMulti = localStorage.getItem("tamil_kid_profiles");
     const savedActiveIdx = localStorage.getItem("tamil_kid_active_profile_idx");
 
@@ -131,8 +161,24 @@ export default function App() {
           localStorage.setItem("tamil_kid_active_profile_idx", JSON.stringify(activeIdx));
         } catch {}
       }
+
+      // Also sync to server
+      saveProfilesToServer(loadedProfiles, activeIdx);
     } else {
-      setIsOnboarding(true);
+      // No local data — try server (handles case where localStorage was cleared)
+      loadProfilesFromServer().then(({ profiles: serverProfiles, activeIdx: serverIdx }) => {
+        if (serverProfiles && serverProfiles.length > 0) {
+          setProfiles(serverProfiles);
+          setActiveProfileIdx(serverIdx);
+          setIsOnboarding(false);
+          try {
+            localStorage.setItem("tamil_kid_profiles", JSON.stringify(serverProfiles));
+            localStorage.setItem("tamil_kid_active_profile_idx", JSON.stringify(serverIdx));
+          } catch {}
+        } else {
+          setIsOnboarding(true);
+        }
+      });
     }
   }, []);
 
@@ -150,6 +196,7 @@ export default function App() {
         localStorage.setItem("tamil_kid_active_profile_idx", JSON.stringify(activeIdx));
       } catch {}
     }
+    saveProfilesToServer(updatedProfiles, activeIdx);
   };
 
   const saveProfile = (newProfile: UserProfile) => {
