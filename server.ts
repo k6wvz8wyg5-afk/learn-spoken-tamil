@@ -41,6 +41,7 @@ async function connectDB(): Promise<Db | null> {
 
 // Load all profiles for a device/browser (keyed by a device ID the client sends)
 app.get("/api/profiles/:deviceId", async (req, res) => {
+  console.log("[Profile API] GET /api/profiles/" + req.params.deviceId);
   try {
     const database = await connectDB();
     if (!database) return res.json({ profiles: null });
@@ -48,6 +49,7 @@ app.get("/api/profiles/:deviceId", async (req, res) => {
     const doc = await database.collection("profiles").findOne({ deviceId: req.params.deviceId });
     if (!doc) return res.json({ profiles: null });
 
+    console.log("[Profile API] Loaded profiles for device:", req.params.deviceId);
     res.json({ profiles: doc.profiles, activeIdx: doc.activeIdx ?? 0 });
   } catch (e) {
     console.error("Error loading profiles:", e);
@@ -57,6 +59,7 @@ app.get("/api/profiles/:deviceId", async (req, res) => {
 
 // Save all profiles for a device
 app.post("/api/profiles/:deviceId", async (req, res) => {
+  console.log("[Profile API] POST /api/profiles/" + req.params.deviceId, "profiles:", req.body?.profiles?.length ?? 0);
   try {
     const database = await connectDB();
     if (!database) return res.json({ ok: false, reason: "no_db" });
@@ -72,6 +75,7 @@ app.post("/api/profiles/:deviceId", async (req, res) => {
       { upsert: true }
     );
 
+    console.log("[Profile API] Saved profiles for device:", req.params.deviceId);
     res.json({ ok: true });
   } catch (e) {
     console.error("Error saving profiles:", e);
