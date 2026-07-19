@@ -16,18 +16,9 @@ import { motion } from "motion/react";
 
 const AVATARS = ["🦁", "🐨", "🦊", "🐼", "🦉", "🦖", "🦄", "🐵"];
 
-function getDeviceId(): string {
-  let id = localStorage.getItem("tamil_kid_device_id");
-  if (!id) {
-    id = crypto.randomUUID();
-    try { localStorage.setItem("tamil_kid_device_id", id); } catch {}
-  }
-  return id;
-}
-
-async function loadProfilesFromServer(): Promise<{ profiles: UserProfile[] | null; activeIdx: number }> {
+async function loadProfilesFromServer(name: string): Promise<{ profiles: UserProfile[] | null; activeIdx: number }> {
   try {
-    const res = await fetch(`/api/profiles/${getDeviceId()}`);
+    const res = await fetch(`/api/profiles/${encodeURIComponent(name.toLowerCase().trim())}`);
     if (!res.ok) return { profiles: null, activeIdx: 0 };
     const data = await res.json();
     if (!data.profiles) return { profiles: null, activeIdx: 0 };
@@ -38,7 +29,10 @@ async function loadProfilesFromServer(): Promise<{ profiles: UserProfile[] | nul
 }
 
 function saveProfilesToServer(profiles: UserProfile[], activeIdx: number) {
-  fetch(`/api/profiles/${getDeviceId()}`, {
+  const profile = profiles[activeIdx];
+  if (!profile || !profile.name) return;
+  const key = profile.name.toLowerCase().trim();
+  fetch(`/api/profiles/${encodeURIComponent(key)}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ profiles, activeIdx }),
@@ -165,20 +159,8 @@ export default function App() {
       // Also sync to server
       saveProfilesToServer(loadedProfiles, activeIdx);
     } else {
-      // No local data — try server (handles case where localStorage was cleared)
-      loadProfilesFromServer().then(({ profiles: serverProfiles, activeIdx: serverIdx }) => {
-        if (serverProfiles && serverProfiles.length > 0) {
-          setProfiles(serverProfiles);
-          setActiveProfileIdx(serverIdx);
-          setIsOnboarding(false);
-          try {
-            localStorage.setItem("tamil_kid_profiles", JSON.stringify(serverProfiles));
-            localStorage.setItem("tamil_kid_active_profile_idx", JSON.stringify(serverIdx));
-          } catch {}
-        } else {
-          setIsOnboarding(true);
-        }
-      });
+      // No local data — show onboarding (will check server when name is entered)
+      setIsOnboarding(true);
     }
   }, []);
 
@@ -205,8 +187,23 @@ export default function App() {
     saveProfiles(updatedProfiles, activeProfileIdx);
   };
 
-  const handleOnboardingSubmit = (name: string, avatar: string) => {
+  const handleOnboardingSubmit = async (name: string, avatar: string) => {
     if (!name.trim()) return;
+
+    // Check if this profile already exists on the server
+    const { profiles: serverProfiles, activeIdx: serverIdx } = await loadProfilesFromServer(name);
+    if (serverProfiles && serverProfiles.length > 0) {
+      setProfiles(serverProfiles);
+      setActiveProfileIdx(serverIdx);
+      setIsOnboarding(false);
+      try {
+        localStorage.setItem("tamil_kid_profiles", JSON.stringify(serverProfiles));
+        localStorage.setItem("tamil_kid_active_profile_idx", JSON.stringify(serverIdx));
+      } catch {}
+      return;
+    }
+
+    // New profile
     const newProf: UserProfile = { ...DEFAULT_PROFILE, name: name.trim(), avatar, lastActive: new Date().toDateString() };
     const updatedProfiles = [...profiles, newProf];
     saveProfiles(updatedProfiles, updatedProfiles.length - 1);
