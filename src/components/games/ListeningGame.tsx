@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { ModuleLesson, ListeningLessonData, ListeningItem } from "../../types";
 import { speakTamil } from "../../lib/audioHelper";
 import { CHARACTERS } from "../../data";
@@ -51,12 +51,13 @@ export default function ListeningGame({ lesson, data, onComplete, onBack }: List
     return () => clearTimeout(timer);
   }, [currentIndex, playAudio]);
 
-  const options = currentItem
-    ? [
-        { emoji: currentItem.emoji, meaning: currentItem.meaning, isCorrect: true },
-        ...currentItem.distractors.map((d) => ({ ...d, isCorrect: false })),
-      ].sort(() => Math.random() - 0.5)
-    : [];
+  const options = useMemo(() => {
+    if (!currentItem) return [];
+    return [
+      { emoji: currentItem.emoji, meaning: currentItem.meaning, isCorrect: true },
+      ...currentItem.distractors.map((d) => ({ ...d, isCorrect: false })),
+    ].sort(() => Math.random() - 0.5);
+  }, [currentIndex]);
 
   const advanceToNext = useCallback(() => {
     if (currentIndex + 1 >= totalItems) {
