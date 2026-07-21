@@ -343,11 +343,16 @@ app.post("/api/speak", async (req, res) => {
   } catch (error: any) {
     console.error("Gemini TTS Error:", error);
 
-    const isQuotaExceeded = error.message?.includes("429") || 
-                            error.message?.includes("QUOTA_EXCEEDED") || 
+    const errMsg = (error.message || "").toLowerCase();
+    const isQuotaExceeded = error.message?.includes("429") ||
+                            error.message?.includes("QUOTA_EXCEEDED") ||
                             error.message?.includes("quota") ||
                             error.status === "RESOURCE_EXHAUSTED" ||
-                            (error.message && error.message.toLowerCase().includes("limit"));
+                            errMsg.includes("limit") ||
+                            errMsg.includes("503") ||
+                            errMsg.includes("high demand") ||
+                            errMsg.includes("overloaded") ||
+                            errMsg.includes("unavailable");
 
     if (isQuotaExceeded) {
       console.warn("Gemini TTS quota exceeded. Notifying client to fallback gracefully.");

@@ -321,56 +321,79 @@ function speakWithBrowserTTS(tamilText: string, transliteration: string, onEnd?:
   if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
 
+    const voices = window.speechSynthesis.getVoices();
+    const tamilVoices = voices.filter((v) => v.lang.toLowerCase().startsWith("ta"));
+
+    // If no Tamil voices available, skip straight to audio element
+    if (tamilVoices.length === 0 && voices.length > 0) {
+      speakWithAudioElement(tamilText, transliteration, onEnd);
+      return;
+    }
+
     const utterance = new SpeechSynthesisUtterance(tamilText);
     utterance.lang = "ta-IN";
     utterance.rate = 0.8;
 
-    let spoke = false;
+    let settled = false;
+    let invoked = false;
+
     const performSpeak = () => {
-      if (spoke) return;
-      spoke = true;
+      if (invoked) return;
+      invoked = true;
+      const currentVoices = window.speechSynthesis.getVoices();
+      const tamil = currentVoices.filter((v) => v.lang.toLowerCase().startsWith("ta"));
 
-      const voices = window.speechSynthesis.getVoices();
-      const tamilVoices = voices.filter((v) => v.lang.toLowerCase().startsWith("ta"));
-
-      if (tamilVoices.length > 0) {
-        const premium = tamilVoices.find(
-          (v) => v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Premium")
-        );
-        utterance.voice = premium || tamilVoices[0];
-      } else {
-        utterance.lang = "ta";
+      if (tamil.length === 0) {
+        settled = true;
+        speakWithAudioElement(tamilText, transliteration, onEnd);
+        return;
       }
 
+      const premium = tamil.find(
+        (v) => v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Premium")
+      );
+      utterance.voice = premium || tamil[0];
+
       utterance.onend = () => {
-        if (onEnd) onEnd();
+        if (!settled) {
+          settled = true;
+          if (onEnd) onEnd();
+        }
       };
       utterance.onerror = () => {
-        speakWithAudioElement(tamilText, transliteration, onEnd);
+        if (!settled) {
+          settled = true;
+          speakWithAudioElement(tamilText, transliteration, onEnd);
+        }
       };
 
       window.speechSynthesis.speak(utterance);
 
-      // Detect silent failure — if no end/error fires within 5s, try audio element fallback
+      // Detect silent failure — if not speaking after 1.5s, use audio element
       setTimeout(() => {
-        if (window.speechSynthesis.speaking) return;
-        speakWithAudioElement(tamilText, transliteration, onEnd);
-      }, 3000);
+        if (!settled && !window.speechSynthesis.speaking) {
+          settled = true;
+          speakWithAudioElement(tamilText, transliteration, onEnd);
+        }
+      }, 1500);
     };
 
-    if (window.speechSynthesis.getVoices().length > 0) {
+    if (voices.length > 0) {
       performSpeak();
     } else {
       const handleVoicesChanged = () => {
-        performSpeak();
         window.speechSynthesis.removeEventListener("voiceschanged", handleVoicesChanged);
+        performSpeak();
       };
       window.speechSynthesis.addEventListener("voiceschanged", handleVoicesChanged);
 
+      // If voices never load, fall through after 500ms
       setTimeout(() => {
         window.speechSynthesis.removeEventListener("voiceschanged", handleVoicesChanged);
-        performSpeak();
-      }, 300);
+        if (!settled) {
+          performSpeak();
+        }
+      }, 500);
     }
   } else {
     speakWithAudioElement(tamilText, transliteration, onEnd);
