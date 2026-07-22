@@ -372,6 +372,100 @@ app.post("/api/speak", async (req, res) => {
   }
 });
 
+// Server-side Google Translate TTS proxy (avoids CORS issues on the client)
+app.get("/api/tts-fallback", async (req, res) => {
+  const text = req.query.text as string;
+  if (!text) return res.status(400).json({ error: "text required" });
+
+  const tamilText = TRANSLITERATION_MAP[text.trim()] || text.trim();
+  const encodedText = encodeURIComponent(tamilText);
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ta&client=tw-ob&q=${encodedText}`;
+
+  try {
+    const response = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" }
+    });
+    if (!response.ok) throw new Error(`Google TTS returned ${response.status}`);
+    const buffer = Buffer.from(await response.arrayBuffer());
+    res.set("Content-Type", "audio/mpeg");
+    res.set("Cache-Control", "public, max-age=86400");
+    res.send(buffer);
+  } catch (e: any) {
+    console.error("[TTS Fallback] Google Translate TTS failed:", e.message);
+    res.status(502).json({ error: "Fallback TTS unavailable" });
+  }
+});
+
+// Background cache warmer — pre-generates Gemini TTS for all words on startup
+async function warmTTSCache() {
+  if (!process.env.GEMINI_API_KEY) {
+    console.log("[Cache Warmer] No GEMINI_API_KEY, skipping.");
+    return;
+  }
+
+  const characters = ["balu", "meera", "kavin"];
+  const allWords = Object.keys(TRANSLITERATION_MAP);
+  let missing: { character: string; text: string }[] = [];
+
+  for (const character of characters) {
+    for (const text of allWords) {
+      if (!getCachedAudio(character, text)) {
+        missing.push({ character, text });
+      }
+    }
+  }
+
+  if (missing.length === 0) {
+    console.log(`[Cache Warmer] All ${allWords.length * characters.length} entries cached.`);
+    return;
+  }
+
+  console.log(`[Cache Warmer] ${missing.length} entries need caching. Starting background generation...`);
+
+  for (let i = 0; i < missing.length; i++) {
+    const { character, text } = missing[i];
+    const cleanText = text.trim();
+    const mappedTamil = TRANSLITERATION_MAP[cleanText] || cleanText;
+
+    let styleInstruction = "Speak cheerfully, naturally, clearly, and slowly like a warm native Tamil speaker teaching a child.";
+    let voiceName = "Kore";
+    if (character === "balu") { styleInstruction = "Speak in a deep, warm, friendly, gentle, and slow voice."; voiceName = "Fenrir"; }
+    else if (character === "meera") { styleInstruction = "Speak in a sweet, slow, encouraging, helpful voice."; voiceName = "Zephyr"; }
+
+    const prompt = `You are a native Tamil language teacher. Pronounce this Tamil word or phrase slowly, warmly, and with a beautiful, natural, perfectly authentic native Tamil accent: "${mappedTamil}". Instruction: ${styleInstruction}`;
+
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const ai = getAIClient();
+        const response = await ai.models.generateContent({
+          model: "gemini-3.1-flash-tts-preview",
+          contents: [{ parts: [{ text: prompt }] }],
+          config: {
+            responseModalities: ["AUDIO"],
+            speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } },
+          },
+        });
+
+        const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+        if (base64Audio) {
+          saveCachedAudio(character, text, base64Audio);
+          if ((i + 1) % 10 === 0) console.log(`[Cache Warmer] ${i + 1}/${missing.length} done.`);
+          break;
+        }
+      } catch (e: any) {
+        const wait = Math.pow(2, attempt + 1) * 1000 + Math.random() * 1000;
+        console.warn(`[Cache Warmer] ${character}:"${text}" attempt ${attempt + 1} failed: ${e.message}. Waiting ${Math.round(wait / 1000)}s...`);
+        await new Promise((r) => setTimeout(r, wait));
+      }
+    }
+
+    // Small delay between requests to avoid rate limits
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  console.log("[Cache Warmer] Done!");
+}
+
 // AI character interactive chat endpoint for spoken dialogue practice
 app.post("/api/chat", async (req, res) => {
   try {
@@ -463,6 +557,8 @@ async function startServer() {
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://0.0.0.0:${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+    // Warm the TTS cache in background after server is ready
+    warmTTSCache().catch((e) => console.error("[Cache Warmer] Fatal:", e));
   });
 }
 

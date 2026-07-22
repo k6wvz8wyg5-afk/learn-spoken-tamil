@@ -304,10 +304,26 @@ export async function speakTamil(
       }
     }
   } catch (err) {
-    // Server unavailable or network error — fall through to browser TTS
+    // Server unavailable or network error — fall through to fallback
   }
 
-  // 2. Fallback to browser SpeechSynthesis
+  // 2. Try server-side Google Translate TTS proxy (no CORS issues)
+  try {
+    const proxyUrl = `/api/tts-fallback?text=${encodeURIComponent(text)}`;
+    const audio = new Audio(proxyUrl);
+    audio.playbackRate = 0.85;
+    await new Promise<void>((resolve, reject) => {
+      audio.onended = () => resolve();
+      audio.onerror = () => reject();
+      audio.play().catch(reject);
+    });
+    if (onEnd) onEnd();
+    return;
+  } catch {
+    // Proxy also failed — fall through to browser TTS
+  }
+
+  // 3. Last resort: browser SpeechSynthesis / client-side audio
   speakWithBrowserTTS(tamilText, text, onEnd);
 }
 
