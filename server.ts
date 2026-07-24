@@ -39,6 +39,33 @@ async function connectDB(): Promise<Db | null> {
   }
 }
 
+// List all saved profile names (for the profile picker on app load)
+app.get("/api/profiles", async (req, res) => {
+  try {
+    const database = await connectDB();
+    if (!database) return res.json({ names: [] });
+
+    const docs = await database.collection("profiles").find({}, { projection: { deviceId: 1, profiles: 1 } }).toArray();
+    const seen = new Set<string>();
+    const names: { name: string; avatar: string }[] = [];
+    for (const doc of docs) {
+      if (doc.profiles && Array.isArray(doc.profiles)) {
+        for (const p of doc.profiles) {
+          const key = (p.name || "").toLowerCase().trim();
+          if (key && !seen.has(key)) {
+            seen.add(key);
+            names.push({ name: p.name, avatar: p.avatar || "🦁" });
+          }
+        }
+      }
+    }
+    res.json({ names });
+  } catch (e) {
+    console.error("Error listing profiles:", e);
+    res.json({ names: [] });
+  }
+});
+
 // Load all profiles for a device/browser (keyed by a device ID the client sends)
 app.get("/api/profiles/:deviceId", async (req, res) => {
   console.log("[Profile API] GET /api/profiles/" + req.params.deviceId);

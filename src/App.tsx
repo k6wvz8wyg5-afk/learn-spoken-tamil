@@ -432,6 +432,70 @@ interface OnboardingPanelProps {
 function OnboardingPanel({ onSubmit }: OnboardingPanelProps) {
   const [name, setName] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState(AVATARS[0]);
+  const [existingProfiles, setExistingProfiles] = useState<{ name: string; avatar: string }[]>([]);
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/profiles")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.names && data.names.length > 0) {
+          setExistingProfiles(data.names);
+        } else {
+          setShowCreateForm(true);
+        }
+      })
+      .catch(() => setShowCreateForm(true))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="bg-white border-4 border-emerald-100 p-8 rounded-[3rem] w-full max-w-md shadow-lg text-center"
+      >
+        <span className="text-5xl block mb-3">🎒</span>
+        <p className="text-sm font-bold text-slate-500">Loading profiles...</p>
+      </motion.div>
+    );
+  }
+
+  if (!showCreateForm && existingProfiles.length > 0) {
+    return (
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="bg-white border-4 border-emerald-100 p-8 rounded-[3rem] w-full max-w-md shadow-lg text-center"
+      >
+        <span className="text-6xl block select-none mb-3">🎒</span>
+        <h2 className="text-2xl font-black text-slate-800 tracking-tight">Welcome Back!</h2>
+        <p className="text-xs text-slate-500 mt-1">Tap your name to continue playing</p>
+
+        <div className="mt-6 space-y-3">
+          {existingProfiles.map((p) => (
+            <button
+              key={p.name}
+              onClick={() => onSubmit(p.name, p.avatar)}
+              className="w-full flex items-center gap-3 px-5 py-4 bg-emerald-50 border-2 border-emerald-200 rounded-2xl hover:bg-emerald-100 active:scale-95 transition-all text-left"
+            >
+              <span className="text-3xl">{p.avatar}</span>
+              <span className="text-base font-black text-slate-700">{p.name}</span>
+            </button>
+          ))}
+        </div>
+
+        <button
+          onClick={() => setShowCreateForm(true)}
+          className="mt-5 text-xs font-bold text-slate-400 hover:text-emerald-600 transition-colors"
+        >
+          + Create New Profile
+        </button>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -493,6 +557,15 @@ function OnboardingPanel({ onSubmit }: OnboardingPanelProps) {
           <Sparkles className="w-4 h-4 fill-white" /> Let's Start Playing!
         </button>
       </form>
+
+      {existingProfiles.length > 0 && (
+        <button
+          onClick={() => setShowCreateForm(false)}
+          className="mt-4 text-xs font-bold text-slate-400 hover:text-emerald-600 transition-colors"
+        >
+          Back to existing profiles
+        </button>
+      )}
     </motion.div>
   );
 }
